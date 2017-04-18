@@ -1,6 +1,25 @@
 {% extends 'blog/base.html' %}
 {% block content %}
-<div class='content'>
-	<h1>Contact page</h1>
-</div>
+		<div class="row mt">
+			<div class="col-lg-6 col-lg-offset-3 centered">
+				<h3>CONTACT ME</h3>
+				<hr>
+				<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+			</div>
+		</div>
+		<div class="row mt">	
+			<div class="col-lg-8 col-lg-offset-2">
+				<form method="post" action={% url 'contacts'%}>
+					{% csrf_token %}
+				  <div class="form-group">
+				    {% for field in form.visible_fields %}
+				    	{{ field.errors }}
+				    	{{ field.help_text }}
+				    	{{field.name}} {{ field }} <br/> <br/>
+				    {% endfor %} 
+				  </div>
+				  <button type="submit" class="btn btn-success">SUBMIT</button>
+				</form>    			
+			</div>
+		</div><!-- /row -->
 {% endblock %}
