@@ -1,5 +1,4 @@
 from django.db import models
-from datetime import datetime
 
 
 class BlogPost(models.Model):
@@ -13,7 +12,4 @@ class BlogPost(models.Model):
         verbose_name_plural = "blogposts"
 
     def __str__(self):
-        return f"This post is about '{self.post_article}'"
-
-    def current_date_time(self):
-        self.posted_date = datetime.now()
+        return f"ID: {self.id}. This post is about '{self.post_article}'"

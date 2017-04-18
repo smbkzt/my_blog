@@ -1,0 +1,9 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+	{% if post %}
+			<h1>{{post.post_article}}</h1>
+			<h3>{{post.post_body}}</h3>
+	{%else %}
+		<p>Some error occurred</p>
+	{%endif%}
+{% endblock %}
