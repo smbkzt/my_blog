@@ -6,8 +6,8 @@ def welcome_page(request):
     return render(request, 'blog/welcome_page.html')
 
 
-def contact_page(request):
-    return render(request, 'blog/contact.html')
+# def contact_page(request):
+#     return render(request, 'blog/contact.html')
 
 
 def about_page(request):

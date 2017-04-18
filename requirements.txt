@@ -1,3 +1,7 @@
 Django==1.11
 flake8==3.3.0
 python-decouple
+dj-database-url 
+gunicorn 
+whitenoise
+psycopg2==2.6.2
