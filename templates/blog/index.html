@@ -1,13 +1,16 @@
 {% extends 'blog/base.html' %}
+{% block title %}
+    <title>Posts archive</title>
+{% endblock %}
 {% block content %}
-<div class="content">
-	{% if latest_posts %}
-			{% for post in latest_posts%}
-				<h2><a href="{% url 'blog:detailed view' post.id%}">{{post.article}}</a></h1>
-				<h4>{{post.article_preview}}</h3>
-			{% endfor %}
-	{%else %}
-		<p>No posts are available</p>
-	{%endif%}
-</div>
+    <div class="content">
+    	{% if latest_posts %}
+    			{% for post in latest_posts%}
+    				<h1><a href="{% url 'blog:detailed_view' post.slug%}">{{post.article}}</a></h1>
+    				<h4>{{post.article_preview}}</h3>
+    			{% endfor %}
+    	{%else %}
+    		<p>No posts are available</p>
+    	{%endif%}
+    </div>
 {% endblock %}
