@@ -1,4 +1,5 @@
 from django.db import models
+from django.template.defaultfilters import slugify
 
 
 class BlogPost(models.Model):
@@ -6,7 +7,12 @@ class BlogPost(models.Model):
         "Название статьи", max_length=100, null=False)
     post_body = models.TextField("Текст", null=False)
     posted_date = models.DateTimeField("Дата публикации", null=True)
+    slug = models.SlugField(unique=True)
     # post_image = models.ImageField("Изображение")
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.post_article)
+        super(BlogPost, self).save(*args, **kwargs)
 
     class Meta:
         verbose_name_plural = "blogposts"
