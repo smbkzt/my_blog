@@ -1,21 +1,24 @@
 from django.db import models
 from django.template.defaultfilters import slugify
+from datetime import datetime
 
 
 class BlogPost(models.Model):
-    post_article = models.CharField(
-        "Название статьи", max_length=100, null=False)
-    post_body = models.TextField("Текст", null=False)
-    posted_date = models.DateTimeField("Дата публикации", null=True)
-    slug = models.SlugField(unique=True)
+    title = models.CharField(
+        "Название статьи", max_length=100)
+    preview = models.TextField("Превью")
+    text = models.TextField("Текст")
+    date = models.DateTimeField("Дата публикации", blank=True)
+    slug = models.SlugField("Генерация ссылки", unique=True)
     # post_image = models.ImageField("Изображение")
 
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.post_article)
+        self.slug = slugify(self.title)
+        self.date = datetime.now()
         super(BlogPost, self).save(*args, **kwargs)
 
     class Meta:
         verbose_name_plural = "blogposts"
 
     def __str__(self):
-        return f"ID: {self.id}. This post is about '{self.post_article}'"
+        return f"ID: {self.id}. This post is about '{self.title}'"

@@ -16,7 +16,7 @@ def about_page(request):
 
 def index(request):
     '''Returns index of blogposts'''
-    latest_posts = BlogPost.objects.order_by('-posted_date')[:5]
+    latest_posts = BlogPost.objects.order_by('-date')[:5]
     print(latest_posts)
     context = {
         "latest_posts": latest_posts,

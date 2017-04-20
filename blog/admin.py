@@ -3,7 +3,7 @@ from .models import BlogPost
 
 
 class CategoryAdmin(admin.ModelAdmin):
-    prepopulated_fields = {'slug': ('post_article',)}
+    prepopulated_fields = {'slug': ('title',)}
 
 
 admin.site.register(BlogPost, CategoryAdmin)

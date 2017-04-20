@@ -1,12 +1,19 @@
 {% extends 'blog/base.html' %}
 {% block title %}
-<title>{{post.article}}</title>
+<title>{{post.title}}</title>
 {% endblock %}
 {% block content %}
-	{% if post %}
-		<h1>{{post.article}}</h1>
-		{{post.article_content}}
-	{%else %}
-		<p>Some error occurred</p>
-	{%endif%}
+<div class="content">
+<div class="detailed">
+    {% if post %}
+        <h1>{{post.title}}</h1>
+        <div><p>{{post.preview}}</p></div>
+        <p>{{post.text}}</p>
+    {%else %}
+        <p>Some error occurred</p>
+    {%endif%}
+</div>
+    
+</div>
+	
 {% endblock %}
