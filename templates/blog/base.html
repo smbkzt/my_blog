@@ -5,9 +5,11 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Simple blog about my python knowledge">
+    <meta name="description" content="Simple blog about python">
     <meta name="author" content="Bekzat Shayakhmetov">
-    <title>Python Blog</title>
+   
+    {% block title %}
+    {% endblock %}
 
     <!-- Bootstrap core CSS -->
     <link href="{% static 'css/bootstrap.css'%}" rel="stylesheet">
@@ -46,25 +48,22 @@
 	    </div>
 		<!-- +++++ Projects Section +++++ -->
 	</nav>
-  
-	
+
 	<div class="container pt">
 		<div class="row mt centered">	
-			<div class="col-lg-1">
+			<div class="col-lg-2">
 			</div>
-			<div class="col-lg-10">
+			<div class="col-lg-8">
 				{% block content %}
 				{% endblock %}
 			</div>
-			<div class="col-lg-1">
+			<div class="col-lg-2">
 			</div>
 		</div><!-- /row -->
 		
 	</div><!-- /container -->
 	
-	
 	<!-- +++++ Footer Section +++++ -->
-	
 	<div id="footer">
 		<div class="container">
 			<div class="row">
@@ -80,7 +79,7 @@
 				<div class="col-lg-4">
 					<h4>My Links</h4>
 					<p>
-						<a href="#">vk</a><br/>
+						<a href="#">VK</a><br/>
 						<a href="#">Facebook</a>
 					</p>
 				</div><!-- /col-lg-4 -->
@@ -89,16 +88,9 @@
 					<h4>About me</h4>
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae voluptas dicta perferendis, corrupti quas repellat, soluta modi ratione incidunt est beatae eos iste, maiores maxime culpa iusto cumque ducimus eaque.</p>
 				</div><!-- /col-lg-4 -->
-			
 			</div>
-		
 		</div>
 	</div>
-	
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
     <script src="{% static 'js/bootstrap.min.js'%}"></script>
   </body>
 </html>

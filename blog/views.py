@@ -16,14 +16,15 @@ def about_page(request):
 
 def index(request):
     '''Returns index of blogposts'''
-    latest_posts = BlogPost.objects.order_by('-posted_date')[:5]
+    latest_posts = BlogPost.objects.order_by('-date')[:5]
+    print(latest_posts)
     context = {
-        "latest_posts": latest_posts
+        "latest_posts": latest_posts,
     }
     return render(request, 'blog/index.html', context)
 
 
-def detail(request, post_id):
-    post = get_object_or_404(BlogPost, pk=post_id)
+def detail(request, slug):
+    post = get_object_or_404(BlogPost, slug=slug)
     context = {'post': post}
     return render(request, 'blog/detail.html', context)
