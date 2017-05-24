@@ -21,4 +21,4 @@ class BlogPost(models.Model):
         verbose_name_plural = "blogposts"
 
     def __str__(self):
-        return f"ID: {self.id}. This post is about '{self.title}'"
+        return "ID: {self.id}. This post is about '{self.title}'".format(self=self)
