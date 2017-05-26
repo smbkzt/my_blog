@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Simple blog about python">
     <meta name="author" content="Bekzat Shayakhmetov">
-   
+    <link rel="shortcut icon" href="{%static 'img/site-icon.png'%}">
     {% block title %}
     {% endblock %}
 
@@ -49,33 +49,20 @@
 		<!-- +++++ Projects Section +++++ -->
 	</nav>
 
-	<div class="container pt">
-		<div class="row mt centered">	
-			<div class="col-lg-2">
-			</div>
-			<div class="col-lg-8">
-				{% block content %}
-				{% endblock %}
-			</div>
-			<div class="col-lg-2">
-			</div>
-		</div><!-- /row -->
-		
-	</div><!-- /container -->
-	
+    {% block content %}
+    {% endblock %}
+
 	<!-- +++++ Footer Section +++++ -->
 	<div id="footer">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-4">
 					<h4>My Bunker</h4>
-					<p>
-						ул. Вершинина, д.46,<br/>
+					<p>ул. Вершинина, д.46,<br/>
 						+7(996)-938-3294, <br/>
-						г.Томск, Россия.
-					</p>
+						г.Томск, Россия.</p>
 				</div><!-- /col-lg-4 -->
-				
+
 				<div class="col-lg-4">
 					<h4>My Links</h4>
 					<p>
@@ -83,7 +70,7 @@
 						<a href="#">Facebook</a>
 					</p>
 				</div><!-- /col-lg-4 -->
-				
+
 				<div class="col-lg-4">
 					<h4>About me</h4>
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae voluptas dicta perferendis, corrupti quas repellat, soluta modi ratione incidunt est beatae eos iste, maiores maxime culpa iusto cumque ducimus eaque.</p>

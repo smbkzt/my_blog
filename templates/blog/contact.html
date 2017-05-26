@@ -1,32 +1,45 @@
 {% extends 'blog/base.html' %}
 {% block title %}
-<title>Contact page</title>
+	<title>Contact page</title>
 {% endblock %}
+
 {% block content %}
-<div class="content">
-	<h1>Contact me</h1>
-	<div class="row mt">
-		<div class="col-lg-6 col-lg-offset-3 centered">
-			<hr>
-			<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
-		</div>
-	</div>
-	<div class="row mt">	
-		<div class="col-lg-8 col-lg-offset-2">
-			<form method="post" action={% url 'contacts'%}>
-				{% csrf_token %}
-			  <div class="form-group">
-			    {% for field in form.visible_fields %}
-			    	{{ field.errors }}
-			    	{{ field.help_text }}
-			    	<div>{{field.name}}</div>
-			    	<div>{{field}}</div> <br/>
-			    {% endfor %} 
-			  </div>
-			  <button type="submit" class="btn btn-success">SUBMIT</button>
-			</form>    			
-		</div>
-	</div><!-- /row -->
-</div>
-		
+<div class="container pt">
+        <div class="row mt centered">
+            <div class="col-lg-3">
+            </div>
+            <div class="col-lg-6">
+
+				<div class="content contact">
+					{% if messages %}
+				        <ul class="messages">
+				            {% for message in messages %}
+				                <h2>{{ message }}</h2>
+				            {% endfor %}
+				        </ul>
+					{%else%}
+						<h1>Contact me</h1>
+						<hr>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis quisquam, recusandae assumenda mollitia alias. Minus perferendis possimus, mollitia vitae accusantium, aperiam veritatis dolores earum consectetur, voluptatem maxime ex suscipit minima.</p>
+						<form method="post" action={% url 'contacts'%}>
+							{% csrf_token %}
+							<div class="contact-fields">
+							    {% for field in form.visible_fields %}
+							    	{{ field.errors }}
+							    	{{ field.help_text }}
+							    	<div class="form-group">
+								    	<div>{{field.name}}</div>
+								    	<div>{{field}}</div>
+							  		</div>
+							    {% endfor %}
+							</div>
+						  <button type="submit" class="btn btn-success">SUBMIT</button>
+						</form>
+				    {% endif %}
+				</div>
+			</div>
+            <div class="col-lg-3">
+            </div>
+    	</div><!-- /row -->
+</div><!-- /container -->
 {% endblock %}

@@ -1,5 +1,6 @@
 from django.contrib import admin
 from .models import BlogPost
+from contact.models import Contact
 
 
 class CategoryAdmin(admin.ModelAdmin):
@@ -7,3 +8,4 @@ class CategoryAdmin(admin.ModelAdmin):
 
 
 admin.site.register(BlogPost, CategoryAdmin)
+admin.site.register(Contact)

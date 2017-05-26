@@ -19,7 +19,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-	font-size: 35px; 
+	font-size: 35px;
 	margin-top: 30px;
 	margin-bottom: 30px;
 }
@@ -131,7 +131,7 @@ hr{
 #footer {
 	background-color: #2f2f2f;
 	padding-top: 50px;
-	padding-bottom: 50px; 
+	padding-bottom: 50px;
 }
 
 #footer p {
@@ -186,7 +186,7 @@ bt {
 }
 
 .content p{
-    text-align: center;
+    text-align: left;
     font-size: 20px;
 }
 .content img{
@@ -195,4 +195,17 @@ bt {
 
 .content .detailed p{
     text-align: left;
+}
+
+.contact-fields input {
+    align-items: center;
+    width: 100%;
+}
+
+.contact-fields {
+    display: block;
+    text-align: left;
+}
+.contact-fields textarea{
+    width: 100%;
 }
