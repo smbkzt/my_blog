@@ -16,6 +16,7 @@ def welcome_page(request):
 
 def about_page(request):
     """Renders about page"""
+
     return render(request, 'blog/about.html')
 
 
