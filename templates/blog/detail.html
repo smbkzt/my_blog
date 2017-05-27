@@ -9,8 +9,7 @@
         <div class="col-lg-2">
         </div>
         <div class="col-lg-8">
-            <div class="content">
-                <div class="detailed">
+            <div class="content detailed-content">
                     {% if post %}
                         <h1>{{post.title}}</h1>
                         <p>{{post.preview}}</p>
@@ -18,8 +17,9 @@
                     {%else %}
                         <p>Some error occurred!</p>
                     {%endif%}
-                </div>
             </div>
+        </div>
+        <div class="col-lg-2">
         </div>
     </div>
 </div>

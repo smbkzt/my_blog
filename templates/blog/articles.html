@@ -1,0 +1,43 @@
+{% extends 'blog/base.html' %}
+{% block title %}
+    <title>Posts archive</title>
+{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row mt centered">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="content content-articles">
+                {% if latest_posts %}
+                    {% for post in latest_posts%}
+                        <h1><a href="{% url 'blog:detailed_view' post.slug%}">{{post.title}}</a></h1>
+                        <img src="https://dbader.org/blog/figures/dictionaries-maps-and-hashtables-in-python.png" width=600 height=300 alt="{{post.title}}">
+                        <p>{{post.preview}}</p>
+                        <a href="{% url 'blog:detailed_view' post.slug%}">→ Continue reading</a>
+                        <hr>
+                    {% endfor %}
+                {%else %}
+                    <div class="article-error centered">
+                        <p>No posts are available</p>
+                    </div>
+                {%endif%}
+            </div>
+
+                <div class="article-pagination">
+                    <ul class="pagination pagination-lg">
+                        {% for num in latest_posts.paginator.page_range %}
+                            {% if num == latest_posts.number %}
+                                <li class="active"><a href="?page={{ num }}">{{ num }}</a></li>
+                            {% else %}
+                                <li><a href="?page={{ num }}">{{ num }}</a></li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+        </div>
+
+        <div class="col-lg-2">
+        </div>
+
+    </div><!-- /row -->
+</div>
+{% endblock %}

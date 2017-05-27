@@ -8,5 +8,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^contact/', contact_views.contact_page, name="contacts"),
     url(r'^about/', views.about_page, name="about"),
-    url(r'^blog/', include('blog.urls')),
+    url(r'^articles/', include('blog.urls')),
 ]
