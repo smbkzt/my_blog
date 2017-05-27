@@ -15,14 +15,8 @@
                         <a href="{% url 'blog:detailed_view' post.slug%}">→ Continue reading</a>
                         <hr>
                     {% endfor %}
-                {%else %}
-                    <div class="article-error centered">
-                        <p>No posts are available</p>
-                    </div>
-                {%endif%}
-            </div>
 
-                <div class="article-pagination">
+                    <div class="article-pagination">
                     <ul class="pagination pagination-lg">
                         {% for num in latest_posts.paginator.page_range %}
                             {% if num == latest_posts.number %}
@@ -33,6 +27,12 @@
                         {% endfor %}
                     </ul>
                 </div>
+                {%else %}
+                    <div class="article-error centered">
+                        <p>No posts are available</p>
+                    </div>
+                 {%endif%}
+            </div>
         </div>
 
         <div class="col-lg-2">
