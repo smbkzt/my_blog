@@ -2,6 +2,11 @@
 {% block title %}
     <title>About me</title>
 {% endblock %}
+{% block about-link%}
+    <li><a href="{%url 'blog:articles'%}">Articles</a></li>
+    <li><a href="{%url 'contacts'%}">Contacts</a></li>
+    <li class="active"><a href="{%url 'about'%}">About</a></li>
+{%endblock%}
 
 {% block content %}
 <div class="container pt">
@@ -11,6 +16,8 @@
         <div class="col-lg-8">
             <div class="content">
             	<h1>About me</h1>
+                <hr>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam, tempore explicabo aut earum ea reiciendis exercitationem in, nihil sit corporis fugiat perspiciatis minus? Libero et debitis illo, aperiam quod minima recusandae explicabo voluptatibus aliquid quas laborum, id, eum omnis a aspernatur officiis iste nemo doloribus reprehenderit asperiores maiores reiciendis molestias perspiciatis facere. Repudiandae nemo, praesentium beatae soluta delectus tempora id, itaque consectetur quidem ipsa in unde accusamus eaque cupiditate quod modi officiis dolor voluptas saepe nihil pariatur. Adipisci alias dolores optio blanditiis culpa odit veritatis ipsa voluptas doloribus eaque at animi autem, iusto quisquam maiores ratione molestias itaque aspernatur. Quisquam.</p>
             </div>
         </div>
         <div class="col-lg-2">

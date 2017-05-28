@@ -20,7 +20,7 @@ def about_page(request):
     return render(request, 'blog/about.html')
 
 
-def index(request):
+def articles(request):
     '''Returns index of blogposts'''
 
     if request.method == "GET":

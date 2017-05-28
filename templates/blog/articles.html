@@ -1,4 +1,9 @@
 {% extends 'blog/base.html' %}
+{% block articles-link%}
+    <li class="active"><a href="{%url 'blog:articles'%}">Articles</a></li>
+    <li><a href="{%url 'contacts'%}">Contacts</a></li>
+    <li><a href="{%url 'about'%}">About</a></li>
+{%endblock%}
 {% block title %}
     <title>Posts archive</title>
 {% endblock %}
@@ -10,7 +15,7 @@
                 {% if latest_posts %}
                     {% for post in latest_posts%}
                         <h1><a href="{% url 'blog:detailed_view' post.slug%}">{{post.title}}</a></h1>
-                        <img src="https://dbader.org/blog/figures/dictionaries-maps-and-hashtables-in-python.png" width=600 height=300 alt="{{post.title}}">
+                        <img src="https://dbader.org/blog/figures/dictionaries-maps-and-hashtables-in-python.png" width=400 height=200 alt="{{post.title}}">
                         <p>{{post.preview}}</p>
                         <a href="{% url 'blog:detailed_view' post.slug%}">→ Continue reading</a>
                         <hr>
@@ -28,8 +33,8 @@
                     </ul>
                 </div>
                 {%else %}
-                    <div class="article-error centered">
-                        <p>No posts are available</p>
+                    <div class="article-error">
+                        <p>No posts are found! Please try again.</p>
                     </div>
                  {%endif%}
             </div>

@@ -8,15 +8,12 @@
     <meta name="description" content="Simple blog about python">
     <meta name="author" content="Bekzat Shayakhmetov">
     <link rel="shortcut icon" href="{%static 'img/site-icon.png'%}">
+
     {% block title %}
     {% endblock %}
 
-    <!-- Bootstrap core CSS -->
     <link href="{% static 'css/bootstrap.css'%}" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
     <link href="{% static 'css/main.css'%}" rel="stylesheet">
-
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="{% static 'js/hover.zoom.js'%}"></script>
     <script src="{% static 'js/hover.zoom.conf.js'%}"></script>
@@ -45,12 +42,21 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li><a href="{%url 'blog:articles'%}">Articles</a></li>
-            <li><a href="{%url 'contacts'%}">Contacts</a></li>
-            <li><a href="{%url 'about'%}">About</a></li>
+            {%block main-page%}{%endblock%}
+            {%block articles-link%}{%endblock%}
+            {%block contacts-link%}{%endblock%}
+            {%block about-link%}{%endblock%}
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
+            {% if user.is_authenticated %}
+              <li><a href="/admin/blog/blogpost/add/"><span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a></li>
+              <li><a href="/admin">Profile</a></li>
+              <li><a href="/admin/logout">Logout</a></li>
+            {%else%}
+              <li><a href="/admin">Sign in</a></li>
+              <li><a href="#">Sign up</a></li>
+            {% endif %}
               <form class="navbar-form navbar-left" method="POST" action="{% url 'blog:search' %}">
                 {% csrf_token %}
                 <div class="form-group">

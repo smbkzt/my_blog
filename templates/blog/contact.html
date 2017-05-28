@@ -2,20 +2,26 @@
 {% block title %}
 	<title>Contact page</title>
 {% endblock %}
+{% block contacts-link%}
+    <li><a href="{%url 'blog:articles'%}">Articles</a></li>
+    <li class="active"><a href="{%url 'contacts'%}">Contacts</a></li>
+    <li><a href="{%url 'about'%}">About</a></li>
+{%endblock%}
 
 {% block content %}
 <div class="container pt">
-        <div class="row mt centered">
-            <div class="col-lg-3">
-            </div>
-            <div class="col-lg-6">
-				<div class="content contact">
+        <div class="row mt">
+            <div class="col-md-6 col-md-offset-3">
+				<div class="content content-contact centered">
 					{% if messages %}
-				        <ul class="messages">
-				            {% for message in messages %}
-				                <p>{{ message }}</p>
-				            {% endfor %}
-				        </ul>
+                        <div class="messages">
+                            <ul>
+                                {% for message in messages %}
+                                    <p>{{ message }}</p>
+                                {% endfor %}
+                             </ul>
+                        </div>
+
 					{%else%}
 						<h1>Contact me</h1>
 						<hr>
@@ -42,7 +48,7 @@
 				    {% endif %}
 				</div>
 			</div>
-            <div class="col-lg-3">
+            <div class="col-md-3">
             </div>
     	</div><!-- /row -->
 </div><!-- /container -->
