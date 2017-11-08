@@ -5,7 +5,7 @@ from .models import Contact
 
 def contact_page(request):
     if request.method == "GET":
-        return render(request, 'blog/contact.html')
+        return render(request, 'contact/contact.html')
     else:
         contact_data = Contact(
             fullname=request.POST['fullname'],
@@ -13,4 +13,4 @@ def contact_page(request):
             text=request.POST['text'])
         contact_data.save()
         messages.success(request, "Thank you! Your feedback has been sent.")
-        return render(request, 'blog/contact.html')
+        return render(request, 'contact/contact.html')

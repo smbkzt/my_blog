@@ -1,3 +1,4 @@
+
 from functools import reduce
 
 from django.shortcuts import render, get_object_or_404
@@ -48,10 +49,11 @@ def search(request):
     if request.method == "GET":
         raise Http404()
     else:
-        search_criterias = str(request.POST['search-articles']).strip()
-        search_criterias = search_criterias.split(" ")
-        all_posts = BlogPost.objects.filter(
-            reduce(lambda x, y: x | y, [Q(title__contains=item) for item in search_criterias]))
+        search_criteria = str(request.POST['search-articles']).strip()
+        search_criteria = search_criteria.split(" ")
+        all_posts = BlogPost.objects.filter(reduce(
+            lambda x, y: x | y, [Q(title__contains=i) for i in search_criteria]
+        ))
         context = {
             "latest_posts": all_posts,
         }

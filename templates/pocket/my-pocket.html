@@ -1,0 +1,33 @@
+{%extends 'base.html' %}
+{%block title%}
+    <title>My Pocket</title>
+{%endblock%}
+{% block content %}
+{% load dractags %}
+    <div class="container">
+        <div class="row mt">
+            <div class="col-md-6 col-md-offset-3">
+                <form method="post" action="{% url 'pocket:url_add'%}">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="url">URL</label>
+                        <input type="text" class="form-control" name="url" id="url" placeholder="Enter url">
+                    </div>
+                    <button type="submit" class="btn btn-success">SUBMIT</button>
+                </form>
+            </div>
+        </div>
+        {%if latest_links%}
+            <div class="row">
+                <div class="col-md-6">
+                    {%for link in latest_links%}
+                        {{link.title}}
+                        {{link.paragraph|safe}}
+                    {%endfor%}
+                </div>
+            </div>
+        {%endif%}
+    </div>
+{% endblock %}
+
+

@@ -1,13 +1,14 @@
 from django.db import models
 from django.template.defaultfilters import slugify
 from datetime import datetime
+from draceditor.models import DraceditorField
 
 
 class BlogPost(models.Model):
     title = models.CharField(
         "Название статьи", max_length=100)
     preview = models.TextField("Превью")
-    text = models.TextField("Текст")
+    text = DraceditorField()
     date = models.DateTimeField("Дата публикации", blank=True)
     slug = models.SlugField("Генерация ссылки", unique=True)
     # post_image = models.ImageField("Изображение")
@@ -21,4 +22,5 @@ class BlogPost(models.Model):
         verbose_name_plural = "blogposts"
 
     def __str__(self):
-        return "ID: {self.id}. This post is about '{self.title}'".format(self=self)
+        return "ID: {self.id}. This post is about \
+            '{self.title}'".format(self=self)

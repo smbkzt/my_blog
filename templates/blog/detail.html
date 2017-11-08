@@ -1,9 +1,10 @@
-{% extends 'blog/base.html' %}
+{% extends 'base.html' %}
 {% block title %}
     <title>{{post.title}}</title>
 {% endblock %}
 
 {% block content %}
+{% load dractags %}
 <div class="container pt">
     <div class="row mt centered">
         <div class="col-lg-2">
@@ -13,7 +14,7 @@
                     {% if post %}
                         <h1>{{post.title}}</h1>
                         <p>{{post.preview}}</p>
-                        <p>{{post.text}}</p>
+                        <p>{{post.text|safe_markdown}}</p>
                     {%else %}
                         <p>Some error occurred!</p>
                     {%endif%}

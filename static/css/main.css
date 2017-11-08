@@ -40,6 +40,10 @@ p {
     text-align: center;
 }
 
+.justified {
+    text-align: justify;
+}
+
 a {
     color: #1abc9c;
     word-wrap: break-word;
@@ -112,7 +116,7 @@ a:after {
 }*/
 
 .content p{
-    text-align: left;
+    text-align: justify;
     font-size: 20px;
 }
 .content img{
@@ -144,3 +148,17 @@ a:after {
     margin-top: 25%;
     text-align: center;
 }
+
+.right-menu {
+    border: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+    display: block;
+    min-width: 100%;
+}
+aside {
+    background: #f0f0f0;
+    padding: 10px;
+    width: 100%;
+    float: right;
+   }
